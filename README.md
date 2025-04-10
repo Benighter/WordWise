@@ -1,5 +1,7 @@
 # WordWise Dictionary App
 
+**🌐 [Live App: https://word-wise-tau.vercel.app/](https://word-wise-tau.vercel.app/)**
+
 A modern, responsive dictionary application with user authentication, built using Next.js, Tailwind CSS, and the Merriam-Webster Dictionary API.
 
 ## ✨ Features
