@@ -58,7 +58,49 @@ A modern, responsive dictionary application with user authentication, built usin
 - **Login/Register**: Create an account to save your search history
 - **Dashboard**: View your search history and statistics
 
-## 📱 App Structure
+## 📤 Deployment to Vercel
+
+This application is configured for easy deployment to Vercel.
+
+### Automatic Deployment (Recommended)
+
+1. Push your code to a GitHub repository
+2. Go to [Vercel](https://vercel.com) and sign in with GitHub
+3. Click "New Project" and import your repository
+4. Configure the following environment variables:
+   - `NEXTAUTH_SECRET`: A random string to encrypt tokens
+   - `NEXTAUTH_URL`: Your production URL (e.g., https://your-app.vercel.app)
+5. Click "Deploy"
+
+### Manual Deployment
+
+1. Install Vercel CLI:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. Login to Vercel:
+   ```bash
+   vercel login
+   ```
+
+3. Deploy the project:
+   ```bash
+   vercel
+   ```
+
+4. For production deployment:
+   ```bash
+   vercel --prod
+   ```
+
+### Environment Variables
+
+Make sure to configure these environment variables in the Vercel dashboard:
+- `NEXTAUTH_SECRET`: A random string used for encryption
+- `NEXTAUTH_URL`: The base URL of your application
+
+## �� App Structure
 
 ```
 dictionary-app/

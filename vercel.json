@@ -1,0 +1,18 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "regions": ["cdg1"],
+  "env": {
+    "NEXTAUTH_URL": {
+      "description": "The base URL of your application",
+      "required": true
+    },
+    "NEXTAUTH_SECRET": {
+      "description": "Secret used to encrypt tokens",
+      "required": true
+    }
+  }
+} 

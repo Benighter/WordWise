@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { userManager } from "@/lib/db";
 
 // Mock user database - in a real app, you would use a proper database
 const users = [
@@ -24,17 +25,24 @@ const handler = NextAuth({
           return null;
         }
 
-        const user = users.find((user) => user.email === credentials.email);
+        try {
+          const user = await userManager.validateCredentials(
+            credentials.email,
+            credentials.password
+          );
 
-        if (user && user.password === credentials.password) {
-          return {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-          };
+          if (user) {
+            return {
+              id: user.id,
+              name: user.name,
+              email: user.email,
+            };
+          }
+          return null;
+        } catch (error) {
+          console.error("Auth error:", error);
+          return null;
         }
-
-        return null;
       },
     }),
   ],

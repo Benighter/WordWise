@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "node deploy.js"
   },
   "dependencies": {
     "axios": "^1.8.4",
+    "bcryptjs": "^2.4.3",
     "framer-motion": "^12.6.3",
     "next": "15.3.0",
     "next-auth": "^4.24.11",
@@ -21,6 +23,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
