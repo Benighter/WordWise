@@ -35,11 +35,34 @@ export interface DictionaryError {
 export const searchWord = async (word: string): Promise<DictionaryEntry[] | string[]> => {
   try {
     // Use our secure API route instead of directly calling the Merriam-Webster API
-    const response = await axios.get(`${API_URL}?word=${encodeURIComponent(word)}`);
+    const response = await axios.get(`${API_URL}?word=${encodeURIComponent(word)}`, {
+      validateStatus: (status) => status < 500, // Only treat 5xx errors as errors
+    });
+
+    // Check for API-specific errors
+    if (response.status !== 200) {
+      if (response.data?.error) {
+        console.error('Dictionary API error:', response.data.error);
+      }
+      throw new Error(response.data?.error || 'Failed to fetch word information');
+    }
+
+    // If the response is an empty array, handle it as "no results"
+    if (Array.isArray(response.data) && response.data.length === 0) {
+      throw new Error('No results found for this word.');
+    }
+
     return response.data;
   } catch (error) {
+    // Log the error for debugging
     console.error('Error fetching dictionary data:', error);
-    throw new Error('Failed to fetch word information');
+    
+    // Re-throw the error with a user-friendly message
+    if (error instanceof Error) {
+      throw error; // Preserve the original error message if available
+    } else {
+      throw new Error('Failed to fetch word information');
+    }
   }
 };
 

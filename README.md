@@ -8,17 +8,27 @@ A modern, responsive dictionary application with user authentication, built usin
 - **Audio Pronunciation**: Listen to word pronunciations when available
 - **User Authentication**: Login and registration system
 - **Search History**: Track and manage your search history
+- **Favorites**: Save and organize words you want to remember
+- **User Dashboard**: View statistics, history, and favorites in one place
+- **Word of the Day**: Discover a new word daily to expand your vocabulary
 - **Responsive Design**: Works seamlessly on mobile, tablet, and desktop devices
 - **Light/Dark Mode**: Automatic theme detection based on system preferences
+- **Word Categories**: Organize words into custom categories
+
+## 🌐 Live Demo
+
+The application is deployed and accessible at:
+- **Production URL**: [https://word-wise-tau.vercel.app](https://word-wise-tau.vercel.app)
 
 ## 🛠️ Technologies Used
 
-- **Next.js** - React framework with App Router
+- **Next.js 15** - React framework with App Router
 - **Tailwind CSS** - Utility-first CSS framework
 - **TypeScript** - Static type checking
 - **NextAuth.js** - Authentication solution
 - **Framer Motion** - Animation library
 - **Merriam-Webster API** - Dictionary data source
+- **LocalStorage** - For client-side data persistence
 
 ## 📋 Getting Started
 
@@ -56,7 +66,9 @@ A modern, responsive dictionary application with user authentication, built usin
 
 - **Search**: Enter a word in the search box to see its definition
 - **Login/Register**: Create an account to save your search history
-- **Dashboard**: View your search history and statistics
+- **Dashboard**: View your search history, favorites, and statistics
+- **Word Categories**: Create custom categories to organize your vocabulary
+- **Favorites**: Save words you want to remember for later
 
 ## 📤 Deployment to Vercel
 
@@ -86,21 +98,21 @@ This application is configured for easy deployment to Vercel.
 
 3. Deploy the project:
    ```bash
-   vercel
+   npx vercel
    ```
 
 4. For production deployment:
    ```bash
-   vercel --prod
+   npx vercel --prod
    ```
 
-### Environment Variables
+### Recent Deployment
 
-Make sure to configure these environment variables in the Vercel dashboard:
-- `NEXTAUTH_SECRET`: A random string used for encryption
-- `NEXTAUTH_URL`: The base URL of your application
+The app has been successfully deployed to:
+- **Production**: [https://word-wise-tau.vercel.app](https://word-wise-tau.vercel.app)
+- **Dashboard**: [https://vercel.com/benighters-projects/word-wise](https://vercel.com/benighters-projects/word-wise)
 
-## �� App Structure
+## 📊 App Structure
 
 ```
 dictionary-app/
@@ -113,7 +125,19 @@ dictionary-app/
 │   │   ├── layout/      # Layout components
 │   │   ├── ui/          # UI components
 │   ├── lib/             # Utility functions and API services
+│   │   ├── dictionaryApi.ts   # Dictionary API service
+│   │   ├── userDataService.ts # User data management
 ```
+
+## 🎨 Design & UX Principles
+
+The app follows these design principles:
+- **Beautiful and modern UI** with clean design, balanced spacing, and elegant typography
+- **Smooth animations and transitions** to enhance interactivity
+- **Fully responsive** design that works seamlessly on all screen sizes
+- **Interactive elements** with thoughtful user feedback (hover effects, etc.)
+- **Full screen utilization** with minimal margins (about 1rem max) for optimal display
+- **Accessibility focus** for clarity and ease of use
 
 ## 👤 Author
 
